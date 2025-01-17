@@ -41,7 +41,7 @@ function Page() {
 
     useEffect(() => {
         const getUserStatus = async () => {
-            const response = await fetch(`http://localhost:3000/api/userStatusEffect?id=${params.messages}`, {
+            const response = await fetch(`/api/userStatusEffect?id=${params.messages}`, {
                 method: "GET",
             })
 
@@ -59,7 +59,7 @@ function Page() {
 
     useEffect(() => {
         const allMessages = async () => {
-            const allMessageResposne = await fetch(`http://localhost:3000/api/getAllMessages?id=${params.messages}`, {
+            const allMessageResposne = await fetch(`/api/getAllMessages?id=${params.messages}`, {
                 method: "GET",
             })
 
@@ -87,7 +87,7 @@ function Page() {
         const newCheckboxState = !checkbox
         setCheckBox(newCheckboxState)
 
-        const getUserMessageStatus = await fetch("http://localhost:3000/api/getUserMessageReceivingStatus", {
+        const getUserMessageStatus = await fetch("/api/getUserMessageReceivingStatus", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -109,7 +109,7 @@ function Page() {
             return;
         }
 
-        const sendAndReceiveMessageDbCall = await fetch("http://localhost:3000/api/sendAndReceiveMessage", {
+        const sendAndReceiveMessageDbCall = await fetch("/api/sendAndReceiveMessage", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

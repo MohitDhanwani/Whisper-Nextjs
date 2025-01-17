@@ -27,7 +27,7 @@ export default function Navbar() {
       return;
     }
 
-    const getUserId = await fetch("http://localhost:3000/api/getUserId" , {
+    const getUserId = await fetch("/api/getUserId" , {
       method: "POST",
       body: JSON.stringify({ userEmail: session.data?.user?.email }),
       headers: {
