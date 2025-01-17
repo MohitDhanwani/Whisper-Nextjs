@@ -144,40 +144,42 @@ function Page() {
     }
 
     return (
-        <div className='bg-[rgb(10,10,15)] min-h-screen px-4 sm:px-6 lg:px-8'>
-            <div className='py-8 sm:py-12 flex flex-col sm:flex-row justify-between items-center gap-4'>
-                <h1 className='text-gradient font-semibold font-jetbrains text-2xl sm:text-3xl lg:text-4xl w-full sm:w-6/12'>Messages</h1>
+        <div className='bg-[rgb(10,10,15)] min-h-screen px-4 sm:px-6 lg:px-8' style={{ position: 'relative', zIndex: 1 }}>
+            <div className='py-8 sm:py-12 flex flex-col sm:flex-row justify-between items-center gap-4' style={{ position: 'relative', zIndex: 2 }}>
+                <h1 className='text-gradient font-semibold font-jetbrains text-2xl sm:text-3xl lg:text-4xl w-full sm:w-6/12' style={{ position: 'relative', zIndex: 2 }}>Messages</h1>
 
-                <div className='flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto'>
+                <div className='flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto' style={{ position: 'relative', zIndex: 2 }}>
                     <div className='flex items-center'>
                         <div
-                            className={`h-4 w-4 rounded-full z-10 cursor-pointer ${checkbox ? 'bg-green-600' : 'bg-red-600'}`}
+                            className={`h-4 w-4 rounded-full cursor-pointer ${checkbox ? 'bg-green-600' : 'bg-red-600'}`}
                             onClick={HandleReceiveMessageCheckBox}
+                            style={{ position: 'relative', zIndex: 2 }}
                         ></div>
-                        <span className='text-white font-jetbrains ml-2 text-sm sm:text-base'>
+                        <span className='text-white font-jetbrains ml-2 text-sm sm:text-base' style={{ position: 'relative', zIndex: 2 }}>
                             {checkbox ? "Receiving Messages" : "Not Receiving Messages"}
                         </span>
                     </div>
 
                     <button
                         className='font-jetbrains text-white cursor-pointer bg-gradient-to-r from-[#6E3CBC] to-[#00F5FF] 
-                        p-2 px-4 rounded-lg w-full sm:w-auto text-sm sm:text-base z-10'
+                        p-2 px-4 rounded-lg w-full sm:w-auto text-sm sm:text-base'
                         onClick={HandleSendMessageVisibility}
+                        style={{ position: 'relative', zIndex: 2 }}
                     >
                         Send Messages
                     </button>
                 </div>
             </div>
 
-            <div className='flex items-center mb-8'>
+            <div className='flex items-center mb-8' style={{ position: 'relative', zIndex: 2 }}>
                 <h1 className='text-white font-jetbrains font-semibold text-sm sm:text-base'>UserID: {params.messages}</h1>
-                <Copy className='ml-4 cursor-pointer z-10' color='white' size={18} onClick={HandleCopyID} />
+                <Copy className='ml-4 cursor-pointer' color='white' size={18} onClick={HandleCopyID} />
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6' style={{ position: 'relative', zIndex: 2 }}>
                 {messageDetails.length > 0 ? (
                     messageDetails.map((message, index) => (
-                        <div key={index} className='p-4 rounded-lg glass-morphism'>
+                        <div key={index} className='p-4 rounded-lg glass-morphism' style={{ position: 'relative', zIndex: 2 }}>
                             <div className='flex items-center'>
                                 <h3 className='font-spaceGrotesk font-semibold text-white text-sm sm:text-base'>{message.messageSentBy}</h3>
                             </div>
@@ -190,8 +192,8 @@ function Page() {
             </div>
 
             {sendMessageButton && (
-                <div className='fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-20 p-4'>
-                    <div className='text-white flex flex-col border rounded-xl w-full max-w-2xl p-4 sm:p-6'>
+                <div className='fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex justify-center items-center p-4' style={{ zIndex: 50 }}>
+                    <div className='text-white flex flex-col border rounded-xl w-full max-w-2xl p-4 sm:p-6' style={{ position: 'relative', zIndex: 51 }}>
                         <div className='flex justify-between items-center mb-4'>
                             <h1 className='font-inter text-purple-400 font-bold text-lg sm:text-xl'>Send New Message</h1>
                             <X className='cursor-pointer' onClick={HandleCloseForm} />
@@ -214,8 +216,9 @@ function Page() {
 
                         <button
                             className='font-jetbrains text-white cursor-pointer bg-gradient-to-r from-[#6E3CBC] to-[#00F5FF] 
-                            p-2 px-4 rounded-lg mt-4 w-full sm:w-auto self-end z-10'
+                            p-2 px-4 rounded-lg mt-4 w-full sm:w-auto self-end'
                             onClick={HandleSendMessageToUser}
+                            style={{ position: 'relative', zIndex: 2 }}
                         >
                             Send Message
                         </button>

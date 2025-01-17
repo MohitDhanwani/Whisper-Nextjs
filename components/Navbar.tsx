@@ -45,31 +45,28 @@ export default function Navbar() {
   }
 
   return (
-    <div className='bg-[rgb(10,10,15)] flex justify-around h-16 items-center border-b-2 w-full '>
-
-        <div className='w-full xl:w-1/12 md:w-4/12 sm:w-6/12'>
+    <div className='bg-[rgb(10,10,15)] flex justify-around h-16 items-center border-b-2 w-full' style={{ position: 'relative', zIndex: 10 }}>
+        <div className='w-full xl:w-1/12 md:w-4/12 sm:w-6/12' style={{ position: 'relative', zIndex: 11 }}>
             <h1 className='font-bold font-jetbrains text-gradient text-2xl ml-4'>
                 Whisper
             </h1>
         </div>
 
-        <div className='text-white flex justify-between font-jetbrains xl:ml-52 md:ml-48 sm:ml-32 xs:ml-32 text-sm w-full xl:w-4/12 lg:w-4/12 sm-w-3/12 px-2'>
+        <div className='text-white flex justify-between font-jetbrains xl:ml-52 md:ml-48 sm:ml-32 xs:ml-32 text-sm w-full xl:w-4/12 lg:w-4/12 sm-w-3/12 px-2' style={{ position: 'relative', zIndex: 11 }}>
             <span className='flex items-center'>
-            <Home size={20}/>
-            <Link href={"/"} className='ml-2 hidden sm:block cursor-pointer z-10'>Home</Link>
+              <Home size={20}/>
+              <Link href={"/"} className='ml-2 hidden sm:block cursor-pointer'>Home</Link>
             </span>
 
             <span className='flex items-center'>
-            <MessageSquare size={20}/>
-            <button className='ml-2 hidden sm:block z-10' onClick={RedirectUserToMessage}>Messages</button>
+              <MessageSquare size={20} onClick={RedirectUserToMessage}/>
+              <button className='ml-2 hidden sm:block' onClick={RedirectUserToMessage}>Messages</button>
             </span>
 
             <span className='flex items-center bg-gradient-to-r from-[#6E3CBC] to-[#00F5FF] p-2 px-4 rounded-lg'>
-            <LogIn size={20}/>
-
-            {!session.data?.user && <button className='ml-2 hidden sm:block cursor-pointer z-10' onClick={HandleGoogleSignIn}>Sign In</button>}
-            {session.data?.user && <button className='ml-2 hidden sm:block cursor-pointer z-10' onClick={HandleSignout}>Logout</button>}
-            
+              <LogIn size={20} onClick={session.data?.user ? HandleSignout : HandleGoogleSignIn}/>
+              {!session.data?.user && <button className='ml-2 hidden sm:block cursor-pointer' onClick={HandleGoogleSignIn}>Sign In</button>}
+              {session.data?.user && <button className='ml-2 hidden sm:block cursor-pointer' onClick={HandleSignout}>Logout</button>}
             </span>
         </div>
     </div>
