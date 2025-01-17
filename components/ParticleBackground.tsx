@@ -21,7 +21,7 @@ const ParticleBackground = () => {
             options={{
                 fullScreen: {
                     enable: false,
-                    zIndex: 0,
+                    zIndex: -5,
                 },
                 background: {
                     color: {
