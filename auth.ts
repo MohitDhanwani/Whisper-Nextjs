@@ -30,7 +30,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     data:{
                         userName: user.name ?? "",
                         userEmail: email,
-                        isReceivingMessages: false,
+                        isReceivingMessages: true,
                     }
                 });
 
